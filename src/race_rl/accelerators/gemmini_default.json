@@ -1,0 +1,38 @@
+{
+  "name": "gemmini_default_8c3f992",
+  "repository": "https://github.com/ucb-bar/gemmini",
+  "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+  "configuration": "GemminiConfigs.defaultConfig",
+  "source_file": "src/main/scala/gemmini/Configs.scala",
+  "source_status": "PINNED_PRIMARY_SOURCE",
+  "parameters": {
+    "tile_rows": 1,
+    "tile_columns": 1,
+    "mesh_rows": 16,
+    "mesh_columns": 16,
+    "input_bits": 8,
+    "weight_bits": 8,
+    "accumulator_bits": 32,
+    "array_output_bits": 20,
+    "scratchpad_bytes": 262144,
+    "accumulator_bytes": 65536,
+    "scratchpad_banks": 4,
+    "accumulator_banks": 2,
+    "scratchpad_singleported": true,
+    "accumulator_singleported": false,
+    "dma_bus_bits": 128,
+    "dma_max_bytes": 64,
+    "max_in_flight_requests": 16,
+    "load_queue_length": 8,
+    "store_queue_length": 2,
+    "execute_queue_length": 8,
+    "dataflows": ["weight_stationary", "output_stationary"]
+  },
+  "calibration": {
+    "clock_hz": null,
+    "area_mm2": null,
+    "energy_coefficients": null,
+    "rtl_timing_validated": false,
+    "silicon_validated": false
+  }
+}

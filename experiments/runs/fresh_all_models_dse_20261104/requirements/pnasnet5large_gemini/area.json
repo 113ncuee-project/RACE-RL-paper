@@ -1,0 +1,7 @@
+{
+  "max_power_w": 0.7808677128253728,
+  "max_latency_s": 11.1341146344,
+  "max_area_mm2": 49.50000000000001,
+  "preference": "area",
+  "weights": null
+}

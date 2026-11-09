@@ -1,0 +1,22 @@
+{
+  "limits": {
+    "max_power_w": 0.7140084563802582,
+    "max_latency_s": 0.060067783199999995,
+    "max_area_mm2": 49.50000000000001
+  },
+  "seed": 901,
+  "trace_sha256": "751dfd1295a28c63f7830e391149cf36d2a07ee01df356e3cc3bd18e91622f3f",
+  "status": {
+    "requests": 32,
+    "rule": "median rank by sum of per-metric median-normalized PPA; witness margins 1.1/1.2/1.1",
+    "status": "CANDIDATE_LIMITS_NOT_DIFFICULTY_VALIDATED",
+    "valid_samples": 30,
+    "witness_hash": "6fe0e542643f0c5960190b0b8d1b0da239311a0f9d38b45c902ed70499215691",
+    "witness_ppa": {
+      "area_mm2": 45.0,
+      "average_power_w": 0.6490985967093256,
+      "latency_s": 0.050056486
+    }
+  },
+  "rule": "first calibration seed with physically valid sample; median normalized rank; witness margins 1.1 power, 1.2 latency, 1.1 area; up to 3 seeds"
+}

@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "created_date": "2026-10-14",
+  "purpose": "可用於目前 CNN 環境的估計情境訓練及敏感度分析，不是實測成本檔。",
+  "evidence_status": "DECLARED_ESTIMATE",
+  "physically_calibrated": false,
+  "confidence_interval_available": false,
+  "memory_hierarchy_identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+  "cnn_hardware_identity": "fe40bbacdeaa87e7c103f4f08dad0c5b6a252bce192dcafc0a03b749fff6c76e",
+  "profiles": [
+    {
+      "file": "cnn_45nm_reference.json",
+      "label": "基準情境",
+      "identity": "2431bb5908c29ef546bd1453ef47e66031831d142162f8ca8454e06b1c16cba2",
+      "factor": 1,
+      "scaled_fields": []
+    },
+    {
+      "file": "cnn_45nm_memory_2x.json",
+      "label": "記憶體動態能耗 ×2",
+      "identity": "ca44f1dd30f61b85b0fd5a8a32829242ad9484f64f2647853ebf221d618f8c4d",
+      "factor": 2,
+      "scaled_fields": [
+        "gb_byte_j",
+        "lb_byte_j",
+        "rf_byte_j",
+        "accumulator_byte_j",
+        "external_byte_j"
+      ]
+    },
+    {
+      "file": "cnn_45nm_mesh_2x.json",
+      "label": "跨 chiplet 動態能耗 ×2",
+      "identity": "1bf8d3c37c20c1e6b541fd92b3c15e72c675fd03f7ce6853072fc37a8a0ebb23",
+      "factor": 2,
+      "scaled_fields": [
+        "link_byte_hop_j"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "horowitz2014",
+      "citation": "Mark Horowitz, Computing’s Energy Problem (and what we can do about it), ISSCC 2014, pp.10–14.",
+      "url": "https://doi.org/10.1109/ISSCC.2014.6757323",
+      "readable_paper_mirror": "https://gwern.net/doc/cs/hardware/2014-horowitz-2.pdf",
+      "location": "Fig.1.1.9 and section5",
+      "source_type": "PRIMARY_PAPER",
+      "source_technology": "45nm, 0.9V rough operation energies; not current hardware measurements",
+      "anchors": {
+        "int8_multiply_pj": 0.2,
+        "int32_add_pj": 0.1,
+        "fp32_multiply_pj": 3.7,
+        "cache_64bit_pj": {
+          "8KiB": 10,
+          "32KiB": 20,
+          "1MiB": 100
+        },
+        "dram_64bit_nj_range": [
+          1.3,
+          2.6
+        ]
+      }
+    },
+    {
+      "id": "gemmini2021",
+      "citation": "Hasan Genc et al., Gemmini: Enabling Systematic Deep-Learning Architecture Evaluation via Full-Stack Integration, DAC 2021.",
+      "url": "https://people.eecs.berkeley.edu/~ysshao/assets/papers/genc2021-dac.pdf",
+      "location": "Fig.6(a), Intel 22nm FFL physical design",
+      "source_type": "AUTHOR_HOSTED_PRIMARY_PAPER",
+      "anchors": {
+        "total_area_mm2": 1.029,
+        "host_cpu_area_mm2": 0.171,
+        "scratchpad_area_mm2": 0.544,
+        "accumulator_area_mm2": 0.146,
+        "array_area_mm2": 0.116
+      },
+      "transfer_limit": "Different RTL/configuration/process from this research extension; values are area sanity anchors only."
+    },
+    {
+      "id": "ucie_edps2023",
+      "citation": "Debendra Das Sharma, UCIe presentation, IEEE EDPS 2023.",
+      "url": "https://www.ieee-edps.com/archives/2023/c/0900sharma.pdf",
+      "location": "slide20 (PDF page20), Key Performance Indicators",
+      "source_type": "INDUSTRY_AUTHOR_PRIMARY_PRESENTATION",
+      "anchors": {
+        "standard_phy_target_pj_per_bit": 0.5,
+        "advanced_phy_target_pj_per_bit": 0.25
+      },
+      "transfer_limit": "Targets, not measurements; project has no UCIe implementation, and 45nm port feasibility is unknown."
+    }
+  ],
+  "derivations": {
+    "reference_coefficients": {
+      "clock_hz": 500000000.0,
+      "chiplet_area_mm2": 5.0,
+      "mac_j": 3e-13,
+      "gb_byte_j": 4.5e-12,
+      "lb_byte_j": 1.25e-12,
+      "rf_byte_j": 2.5e-13,
+      "accumulator_byte_j": 2.5e-12,
+      "external_byte_j": 3.25e-10,
+      "link_byte_hop_j": 5e-12,
+      "dma_byte_j": 5e-13,
+      "chiplet_static_power_w": 0.05,
+      "dram_static_power_w": 0.1
+    },
+    "mac_pj": ".2 + .1 = .3",
+    "gb_pj_per_byte": "(20 + (100-20)/5)/8 = 4.5",
+    "lb_pj_per_byte": "10/8 = 1.25, 8KiB proxy for 4KiB bank",
+    "accumulator_pj_per_byte": "20/8 = 2.5, one 32KiB bank",
+    "external_pj_per_byte": "2600/8 = 325",
+    "link_pj_per_byte_hop": ".5*8 + 1 router allowance = 5",
+    "area_mm2_unrounded": 5.000202737603305,
+    "area_mm2_formula": "(total22nm - CPU22nm)*(45/22)^2 + SRAM22nm_per_KiB*20KiB_LB*(45/22)^2 + .03 RF + .20 vector + 1.00 router/custom PHY reserve; round to 5.0",
+    "vector_pj_per_op": "3.7 rounded to 4; mixed-operation proxy"
+  },
+  "limitations": [
+    "三份固定同一硬體、500MHz、容量、頻寬、5.0mm²/chiplet、static power 與 RL 條件；只改宣告的成本欄位。",
+    "45nm 只是運算與記憶體參考能耗情境，混合來源及面積平方縮放不構成完整製程模型。",
+    "RF、DMA、向量混合操作、額外邏輯/PHY面積與靜態功耗是假設；不能作矽片 PPA 或廠商規格保證。",
+    "每 byte 線性記憶體能耗不含完整 macro/burst 粒度與閒置轉換；DRAM動態I/O在 external，DMA不重複包含。",
+    "Timing仍是未校準 layer-barrier bottleneck；沒有時序收斂、封裝及製程驗證。",
+    "兩個 ×2 情境不是上下置信界，也不代表其他真實製程。",
+    "做配對比較時使用相同使用者PPA限制、seed、輸入、回合與互動預算；不得各自放寬限制挑選較好的結果。"
+  ]
+}

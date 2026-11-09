@@ -1,0 +1,20 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+*.pt
+*.pth
+runs_repro/
+model_cache/
+# Created by scripts/extract_data.sh
+experiments/paper_sources/
+experiments/runs/*
+!experiments/runs/common_dse_study_v2/
+experiments/runs/common_dse_study_v2/*
+!experiments/runs/common_dse_study_v2/requirements/
+!experiments/runs/fresh_all_models_dse_20261104/
+experiments/runs/fresh_all_models_dse_20261104/*
+!experiments/runs/fresh_all_models_dse_20261104/requirements/

@@ -1,0 +1,36 @@
+{
+  "base": {
+    "name": "RACE_CNN_45NM_MESH_2X_DECLARED_PROXY",
+    "evidence_status": "DECLARED_ESTIMATE",
+    "sources": {
+      "clock_hz": "ASSUMPTION: fixed 500 MHz scenario, not timing-closed; https://people.eecs.berkeley.edu/~ysshao/assets/papers/genc2021-dac.pdf is an architecture reference, not evidence for this project clock.",
+      "chiplet_area_mm2": "DERIVED_PROXY: round((1.029-0.171)*(45/22)^2 + (0.690/320*20)*(45/22)^2 + 0.03 RF + 0.20 vector + 1.00 router/custom PHY reserve, 1) = 5.0 mm2; https://people.eecs.berkeley.edu/~ysshao/assets/papers/genc2021-dac.pdf Fig.6 gives 22nm baseline only. Square scaling and extension allowances are assumptions; excludes host CPU, DRAM and package.",
+      "mac_j": "DERIVED_PROXY: (0.2 INT8 multiply + 0.1 INT32 add) pJ = 0.3 pJ/MAC; https://doi.org/10.1109/ISSCC.2014.6757323 Fig.1.1.9, 45nm/0.9V; excludes separately charged storage accesses. Not measured in project RTL.",
+      "gb_byte_j": "DERIVED_PROXY: (20 + (100-20)*log2(64/32)/log2(1024/32))/8 = 4.5 pJ/B; https://doi.org/10.1109/ISSCC.2014.6757323 Fig.1.1.9 uses 64-bit accesses. Interpolated 64KiB bank and linear byte allocation are assumptions; reads and writes share this proxy.",
+      "lb_byte_j": "PROXY: 10 pJ/64-bit access / 8 = 1.25 pJ/B; https://doi.org/10.1109/ISSCC.2014.6757323 Fig.1.1.9 8KiB cache used for each 4KiB LB bank. Equal read/write and linear byte charging are assumptions.",
+      "rf_byte_j": "ASSUMPTION: 0.25 pJ/B per endpoint access for distributed 1536B RF; no matching public macro or port-energy data. Reads/writes equal; multiport/wiring cost requires RTL calibration.",
+      "accumulator_byte_j": "PROXY: 20 pJ/64-bit access / 8 = 2.5 pJ/B; https://doi.org/10.1109/ISSCC.2014.6757323 Fig.1.1.9 32KiB cache used for each 32KiB ACC bank. Read/write symmetry and wide-port byte allocation are assumptions.",
+      "external_byte_j": "PROXY: 2.6 nJ/64-bit access / 8 = 325 pJ/B; https://doi.org/10.1109/ISSCC.2014.6757323 Fig.1.1.9 DRAM range. Treat as dynamic payload including DRAM I/O; no extra I/O energy is added in DMA. Not a calibrated device/channel or burst model.",
+      "link_byte_hop_j": "SENSITIVITY_ASSUMPTION: 2 * reference coefficient; not a second measurement. PROXY: 0.5 pJ/bit * 8 + 1.0 pJ/B router allowance = 5 pJ/B/hop; https://www.ieee-edps.com/archives/2023/c/0900sharma.pdf slide20 UCIe standard-package PHY target only. Router allowance and applying it to current XY mesh are assumptions; no UCIe protocol/PHY implementation is claimed.",
+      "dma_byte_j": "ASSUMPTION: 0.5 pJ/bus-byte incremental controller/address energy; excludes DRAM I/O, SRAM/RF endpoint accesses and separately counted vector packing. No matching RTL calibration.",
+      "chiplet_static_power_w": "ASSUMPTION: 0.05 W/chiplet including SRAM/RF leakage, logic/control and idle network clocks. Sanity anchor ~0.1 W/MiB memory leakage from https://doi.org/10.1109/ISSCC.2014.6757323 section5; remainder is declared allowance, not measured. No dynamic activity-proportional clock-tree model.",
+      "dram_static_power_w": "ASSUMPTION: 0.10 W for one external channel/device during inference; refresh/background/idle I/O lumped here. No vendor device or temperature calibration."
+    },
+    "memory_hierarchy_identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+    "clock_hz": 500000000.0,
+    "chiplet_area_mm2": 5.0,
+    "mac_j": 3e-13,
+    "gb_byte_j": 4.5e-12,
+    "lb_byte_j": 1.25e-12,
+    "rf_byte_j": 2.5e-13,
+    "accumulator_byte_j": 2.5e-12,
+    "external_byte_j": 3.25e-10,
+    "link_byte_hop_j": 1e-11,
+    "dma_byte_j": 5e-13,
+    "chiplet_static_power_w": 0.05,
+    "dram_static_power_w": 0.1
+  },
+  "vector_op_j": 4e-12,
+  "vector_op_source": "PROXY: 3.7 pJ FP32 multiply rounded to 4.0 pJ/operation; https://doi.org/10.1109/ISSCC.2014.6757323 Fig.1.1.9. One coefficient for mixed FP32 vector/gather/quantization operations is an assumption, not a bound; excludes separately counted memory accesses.",
+  "cnn_hardware_identity": "fe40bbacdeaa87e7c103f4f08dad0c5b6a252bce192dcafc0a03b749fff6c76e"
+}

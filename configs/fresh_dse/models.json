@@ -1,0 +1,13 @@
+{
+  "resnet18": {"entry": "tools/preference_seven_entry.py", "input_size": 64, "source": "src"},
+  "resnet34": {"entry": "tools/preference_seven_entry.py", "input_size": 64, "source": "src"},
+  "resnet50": {"entry": "tools/preference_seven_entry.py", "input_size": 64, "source": "src"},
+  "vgg16": {"entry": "tools/preference_seven_entry.py", "input_size": 64, "source": "src"},
+  "vgg19": {"entry": "tools/preference_seven_entry.py", "input_size": 64, "source": "src"},
+  "mobilenet_v2": {"entry": "tools/preference_seven_entry.py", "input_size": 64, "source": "src"},
+  "alexnet": {"entry": "tools/preference_seven_entry.py", "input_size": 64, "source": "src"},
+  "resnext50_32x2d_gemini": {"entry": "tools/gemini_resnext_entry.py", "input_size": 64, "source": "src"},
+  "inception_resnet_v1_gemini": {"entry": "tools/gemini_inception_entry.py", "input_size": 75, "source": "experiments/gemini_workload_extension_20261104/src"},
+  "pnasnet5large_gemini": {"entry": "tools/gemini_pnas_entry.py", "input_size": 331, "source": "experiments/gemini_pnas_extension_20261104/src"},
+  "transformer_gemini_shape": {"entry": "tools/gemini_transformer_entry.py", "input_size": 64, "source": "experiments/gemini_transformer_extension_20261104/src"}
+}

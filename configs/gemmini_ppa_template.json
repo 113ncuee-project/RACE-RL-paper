@@ -1,0 +1,31 @@
+{
+  "name": "hierarchical_ppa_requires_evidence",
+  "evidence_status": "UNAVAILABLE",
+  "sources": {
+    "clock_hz": "",
+    "chiplet_area_mm2": "",
+    "mac_j": "",
+    "gb_byte_j": "",
+    "lb_byte_j": "",
+    "rf_byte_j": "",
+    "accumulator_byte_j": "",
+    "external_byte_j": "",
+    "link_byte_hop_j": "",
+    "dma_byte_j": "",
+    "chiplet_static_power_w": "",
+    "dram_static_power_w": ""
+  },
+  "clock_hz": null,
+  "chiplet_area_mm2": null,
+  "memory_hierarchy_identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+  "mac_j": null,
+  "gb_byte_j": null,
+  "lb_byte_j": null,
+  "rf_byte_j": null,
+  "accumulator_byte_j": null,
+  "external_byte_j": null,
+  "link_byte_hop_j": null,
+  "dma_byte_j": null,
+  "chiplet_static_power_w": null,
+  "dram_static_power_w": null
+}

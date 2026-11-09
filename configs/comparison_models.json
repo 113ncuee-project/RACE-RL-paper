@@ -1,0 +1,22 @@
+{
+  "formal": {
+    "id": "reinforce",
+    "role": "formal",
+    "trainer": "race_rl.training.RACETrainer",
+    "critic": false,
+    "updates_per_episode": 1,
+    "ppa_before_action": false
+  },
+  "comparisons": [
+    {
+      "id": "ppo",
+      "role": "comparison_only",
+      "trainer": "race_rl.comparisons.ppo.PPOTrainer",
+      "critic": true,
+      "updates_per_episode": 4,
+      "ppa_before_action": false,
+      "superiority_established": false,
+      "historical_evidence": "docs/research/comparison_models/ppo_0_7_0"
+    }
+  ]
+}

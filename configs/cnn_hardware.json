@@ -1,0 +1,54 @@
+{
+  "identity": "fe40bbacdeaa87e7c103f4f08dad0c5b6a252bce192dcafc0a03b749fff6c76e",
+  "parameters": {
+    "memory_hierarchy": {
+      "profile": "race_memory_hierarchy_v2",
+      "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+      "parameters": {
+        "lb_operand_slot_bytes": 4096,
+        "lb_output_bytes": 4096,
+        "lb_bank_bytes_per_cycle": 16,
+        "gb_bank_bytes_per_cycle": 16,
+        "rf_a_bytes": 256,
+        "rf_b_bytes": 256,
+        "rf_psum_bytes": 1024,
+        "rf_operand_bytes_per_cycle": 256,
+        "rf_psum_bytes_per_cycle": 1024,
+        "accumulator_bank_bytes_per_cycle": 64
+      },
+      "pe_clusters_per_chiplet": 1,
+      "lb_total_bytes": 20480,
+      "rf_total_bytes": 1536,
+      "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL",
+      "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+      "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints"
+    },
+    "reference": {
+      "repository": "https://github.com/ucb-bar/gemmini",
+      "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+      "configuration": "GemminiConfigs.defaultConfig",
+      "source_file": "src/main/scala/gemmini/Configs.scala",
+      "parameters_match_public_default": true,
+      "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+      "rtl_timing_validated": false,
+      "silicon_validated": false
+    },
+    "vector_unit": {
+      "lanes": 16,
+      "precision": "FP32",
+      "operations_per_cycle": 16,
+      "status": "RESEARCH_EXTENSION"
+    },
+    "gb_allocator": {
+      "activation_cache_bank": 0,
+      "gather_a_output_bank": 1,
+      "weight_banks": [
+        2,
+        3
+      ]
+    },
+    "pe_precision": "INT8 operands / INT32 accumulated output; 20-bit intermediate RTL not reproduced"
+  },
+  "ppa_calibrated": false,
+  "rtl_implemented": false
+}

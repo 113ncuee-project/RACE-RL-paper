@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/ucb-bar/gemmini",
+  "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+  "reference_files": {
+    "LICENSE": {
+      "sha256": "c41aaa8016faefb6d266f5cfbbaeefc32b5ae0ff3c67670be2b1b0cf291ef6e0",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/LICENSE",
+      "bytes": 1403
+    },
+    "README.md": {
+      "sha256": "9c5977d88b6ffa0fb04e5a8f878eb984d2f4c8c329539b6c8b29b57f2d2c42b7",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/README.md",
+      "bytes": 40587
+    },
+    "src/main/scala/gemmini/Configs.scala": {
+      "sha256": "178c21ac741c89c08158efa71fb34da35d27b75bd50bde5116a5e19178f8391b",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/Configs.scala",
+      "bytes": 14307
+    },
+    "src/main/scala/gemmini/GemminiConfigs.scala": {
+      "sha256": "7294a082a1df4ae7aa7d81adc5bde75b7d5118683c083f6a4b998c9ce64d102e",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/GemminiConfigs.scala",
+      "bytes": 27079
+    },
+    "src/main/scala/gemmini/Scratchpad.scala": {
+      "sha256": "e4d3a12c700fe9edaf5c2ce2f283ec5233a98bd103fb04054160e8097cb89a4f",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/Scratchpad.scala",
+      "bytes": 42628
+    },
+    "src/main/scala/gemmini/MeshWithDelays.scala": {
+      "sha256": "c33f4d576301a902d33cb7ab9f3fd4c95dc9b76f605fb399037c55e03291e6cb",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/MeshWithDelays.scala",
+      "bytes": 10670
+    },
+    "src/main/scala/gemmini/DMA.scala": {
+      "sha256": "db6d9d61f8794f6d60508c5844a2b287ffab0cd795a662b84b970dd9615e5dc1",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/DMA.scala",
+      "bytes": 28410
+    }
+  },
+  "scope": "Read-only source snapshot for defaultConfig provenance; not a runnable RTL checkout.",
+  "retrieved_date": "2026-10-14"
+}

@@ -1,0 +1,22 @@
+{
+  "profile": "race_memory_hierarchy_v2",
+  "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+  "parameters": {
+    "lb_operand_slot_bytes": 4096,
+    "lb_output_bytes": 4096,
+    "lb_bank_bytes_per_cycle": 16,
+    "gb_bank_bytes_per_cycle": 16,
+    "rf_a_bytes": 256,
+    "rf_b_bytes": 256,
+    "rf_psum_bytes": 1024,
+    "rf_operand_bytes_per_cycle": 256,
+    "rf_psum_bytes_per_cycle": 1024,
+    "accumulator_bank_bytes_per_cycle": 64
+  },
+  "pe_clusters_per_chiplet": 1,
+  "lb_total_bytes": 20480,
+  "rf_total_bytes": 1536,
+  "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL",
+  "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+  "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints"
+}

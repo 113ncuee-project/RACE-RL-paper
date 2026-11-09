@@ -1,0 +1,16 @@
+{
+  "name": "gemmini_foundation_scenario",
+  "dram_capacity_bytes": 1073741824,
+  "dram_bytes_per_cycle": 16,
+  "dram_first_response_cycles": 20,
+  "mesh_bytes_per_cycle": 16,
+  "mesh_hop_cycles": 2,
+  "clock_hz": null,
+  "provenance": {
+    "status": "RESEARCH_ASSUMPTION_NOT_GEMMINI_SPEC",
+    "dram": "One shared external channel attached to chiplet c0; finite bandwidth and capacity; scenario values, not a measured DRAM device.",
+    "mesh": "Project extension: rectangular compute-only mesh, deterministic XY routing and atomic directed-path reservations. Not present in Gemmini RTL.",
+    "clock_hz": "No implementation clock is inferred from defaultConfig. Reports use cycles until an explicit scenario clock is supplied.",
+    "ppa": "Area, average power and energy remain unavailable; missing calibration blocks formal PPA scoring."
+  }
+}

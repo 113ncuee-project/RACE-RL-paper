@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "input_size": 64,
+  "purpose": "Pilot-derived feasibility tasks, not vendor limits or calibrated silicon; frozen before the next experiment.",
+  "derivation": "Power >= 1.10 * observed witness (rounded up to 0.001 W); latency >= 1.20 * witness (rounded up to 0.01 s); area = witness compute count + 1 mm2. No training or evaluation candidate is seeded from the witness.",
+  "ppa_source_hashes": {
+    "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+    "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+    "oracle.py": "2c6056d910c62629a1fc6443628743c1ea19388aaca6529f0988b83d6400429a",
+    "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+    "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+    "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+    "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391",
+    "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+    "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+    "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4"
+  },
+  "models": {
+    "resnet18": {
+      "requirements": {
+        "max_power_w": 0.015,
+        "max_latency_s": 0.55,
+        "max_area_mm2": 9,
+        "preference": "balanced"
+      },
+      "witness_file": "configs/feasibility_witnesses/resnet18.json.gz",
+      "witness_sha256": "40a2edb69f958ebca1aa6b212266e1f09b5fdbfcea38293e73c28b712f1bfa5c"
+    },
+    "resnet34": {
+      "requirements": {
+        "max_power_w": 0.015,
+        "max_latency_s": 1.05,
+        "max_area_mm2": 9,
+        "preference": "balanced"
+      },
+      "witness_file": "configs/feasibility_witnesses/resnet34.json.gz",
+      "witness_sha256": "a9b65eb9890a3b36ce0755c381165c39ef478128e37d7de2f6dc8029edadf12e"
+    },
+    "resnet50": {
+      "requirements": {
+        "max_power_w": 0.013,
+        "max_latency_s": 1.32,
+        "max_area_mm2": 7,
+        "preference": "balanced"
+      },
+      "witness_file": "configs/feasibility_witnesses/resnet50.json.gz",
+      "witness_sha256": "403a411e34a44407425ad43d2591e09a8a33411f13bf79927b0bef56c1e34f34"
+    },
+    "vgg16": {
+      "requirements": {
+        "max_power_w": 0.009,
+        "max_latency_s": 5.25,
+        "max_area_mm2": 3,
+        "preference": "balanced"
+      },
+      "witness_file": "configs/feasibility_witnesses/vgg16.json.gz",
+      "witness_sha256": "91efd38601934339de7a1e3356d91abc642e80768aa2155d5dc72dec29f93741"
+    },
+    "vgg19": {
+      "requirements": {
+        "max_power_w": 0.009,
+        "max_latency_s": 6.12,
+        "max_area_mm2": 3,
+        "preference": "balanced"
+      },
+      "witness_file": "configs/feasibility_witnesses/vgg19.json.gz",
+      "witness_sha256": "2a9be6ebfafdc5b19cff7714cca0c743e3f816d4c76209995b60ac7830be40fc"
+    },
+    "mobilenet_v2": {
+      "requirements": {
+        "max_power_w": 0.008,
+        "max_latency_s": 0.24,
+        "max_area_mm2": 2,
+        "preference": "balanced"
+      },
+      "witness_file": "configs/feasibility_witnesses/mobilenet_v2.json.gz",
+      "witness_sha256": "5866dba61ee7761b87a027d5afb7777d2934b7a2993d33fb9d6415a090d5c1d8"
+    },
+    "alexnet": {
+      "requirements": {
+        "max_power_w": 0.011,
+        "max_latency_s": 1.64,
+        "max_area_mm2": 3,
+        "preference": "balanced"
+      },
+      "witness_file": "configs/feasibility_witnesses/alexnet.json.gz",
+      "witness_sha256": "c02d8332a2308e4e67c21659d6103eec5f43fd1060970194cea7f729ebd9ccc1"
+    }
+  }
+}
